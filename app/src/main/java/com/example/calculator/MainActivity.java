@@ -69,6 +69,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.b_minus:
             case R.id.b_multiply:
             case R.id.b_divide:
+                //长运算式
+                if (!operator.equals("")){
+                    //如果前面有运算式则先计算前面的
+                    if(!first.equals("")&&!secound.equals("")){
+                        double r = calcuator();
+                        result = String.valueOf(r);
+                        operator = "";
+                        first = result;
+                        secound = "";
+                        show = result;
+                    }else {
+                        break;
+                    }
+                }
                 operator = inputText;
                 refreshText(show+operator);
                 break;
